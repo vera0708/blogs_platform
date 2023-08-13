@@ -181,7 +181,6 @@
 }
 
 @media (max-width: 855px) {
-
     .blog__item {
         gap: 16px;
     }
@@ -261,7 +260,6 @@
 }
 
 @media (max-width: 520px) {
-
     .blog__list {
         gap: 12px;
         margin-bottom: 30px;

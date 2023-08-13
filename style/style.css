@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import 'header.css';
 @import 'main-page.css';
 @import 'blog.css';
@@ -5,8 +6,8 @@
 @font-face {
     font-family: Lato;
     src: local('lato'), local('lato-regular'),
-        url('./fonts/lato-regular.woff') format('woff2'),
-        url('./fonts/lato-regular.woff') format('woff');
+        url('../fonts/lato-regular.woff2') format('woff2'),
+        url('../fonts/lato-regular.woff') format('woff');
     font-weight: 400;
     font-display: swap;
 }
@@ -14,8 +15,8 @@
 @font-face {
     font-family: Lato;
     src: local('lato bold'), local('lato-bold'),
-        url('./fonts/lato-bold.woff2') format('woff2'),
-        url('./fonts/lato-bold.woff') format('woff');
+        url('../fonts/lato-bold.woff2') format('woff2'),
+        url('../fonts/lato-bold.woff') format('woff');
     font-weight: 700;
     font-display: swap;
 }
