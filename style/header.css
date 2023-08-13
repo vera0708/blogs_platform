@@ -1,0 +1,13 @@
+.header__paragraph {
+    margin-bottom: 45px;
+}
+
+.navigatin {
+    margin-bottom: 50px;
+}
+
+.navigatin__list {
+    font-size: 16px;
+    padding: 0 0 0 20px;
+    color: #525252;
+}

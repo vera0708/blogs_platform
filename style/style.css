@@ -1,0 +1,120 @@
+@import 'header.css';
+@import 'main-page.css';
+@import 'blog.css';
+
+@font-face {
+    font-family: Lato;
+    src: local('lato'), local('lato-regular'),
+        url('./fonts/lato-regular.woff') format('woff2'),
+        url('./fonts/lato-regular.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Lato;
+    src: local('lato bold'), local('lato-bold'),
+        url('./fonts/lato-bold.woff2') format('woff2'),
+        url('./fonts/lato-bold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ol {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    font-family: Lato, Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #ffffff;
+    color: #2d2d2d;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+button {
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+p,
+fieldset {
+    margin: 0;
+}
+
+.visually-hidden {
+    position: fixed;
+    transform: scale(0);
+}
+
+.container {
+    max-width: 1433px;
+    padding: 143px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1900px) {
+    .container {
+        padding: 120px 100px;
+    }
+}
+
+@media (max-width: 1750px) {
+    .container {
+        padding: 100px 70px;
+    }
+}
