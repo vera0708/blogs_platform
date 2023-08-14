@@ -73,6 +73,31 @@
     gap: 30px;
 }
 
+.footer__btn {
+    display: block;
+    cursor: pointer;
+    width: 37px;
+    background-size: 37px;
+    color: #8F8F8F;
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: 1px solid transparent;
+    transition-property: color, outline-color;
+    transition-duration: 0.3s ease-in-out;
+}
+
+.footer__btn-next {
+    transform: rotate(180deg);
+}
+
+.footer__btn:hover {
+    color: #3670C7;
+}
+
+.footer__btn:active {
+    outline-color: #3670C7;
+}
+
 .footer__list {
     display: flex;
     justify-content: center;
@@ -94,6 +119,16 @@
     padding: 0;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.footer__page:hover {
+    color: #3670C7;
+}
+
+.footer__page:hover {
+    color: #3670C7;
+    border-color: #3670C7;
 }
 
 @media (max-width: 1900px) {
@@ -215,7 +250,7 @@
 
     .footer__btn {
         width: 24px;
-        height: 24px;
+        background-size: 24px;
     }
 
     .blog__footer {
@@ -290,7 +325,7 @@
 
     .footer__btn {
         width: 16px;
-        height: 16px;
+        background-size: 16px;
     }
 
     .footer__page {
