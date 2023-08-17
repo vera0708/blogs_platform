@@ -95,6 +95,7 @@
 }
 
 .footer__btn:active {
+    color: #3670C7;
     outline-color: #3670C7;
 }
 
@@ -126,7 +127,12 @@
     color: #3670C7;
 }
 
-.footer__page:hover {
+.footer__page:active {
+    color: #3670C7;
+    border-color: #3670C7;
+}
+
+.footer__page.active {
     color: #3670C7;
     border-color: #3670C7;
 }
