@@ -19,7 +19,7 @@ let currentPage = 1;
 let pages = [];
 function showPagination(currentPage) {
     listPages.textContent = '';
-    console.log(listPages);
+    console.log('listPages', listPages);
     for (let i = currentPage; i < currentPage + 3; i++) {
         let page = document.createElement('li');
         page.classList.add('footer__page');
@@ -32,16 +32,9 @@ function showPagination(currentPage) {
 showPagination(currentPage);
 showPage(pages[0]);
 
-
-
-for (const item of pages) {
-    item.addEventListener('click', function () {
-        showPage(this);
-    });
-};
-
 next.addEventListener('click', () => {
     if (currentPage === totalPages) {
+        showPage(pages[currentPage]);
         showPagination(currentPage);
         next.style.cssText = `
         display: none;
@@ -49,11 +42,13 @@ next.addEventListener('click', () => {
     } else {
         currentPage++;
         showPagination(currentPage);
+        showPage(pages[currentPage]);
     }
 });
 
 prev.addEventListener('click', () => {
     if (currentPage === 1) {
+        showPage(pages[currentPage]);
         showPagination(currentPage);
         prev.style.cssText = `
         display: none;
@@ -61,8 +56,16 @@ prev.addEventListener('click', () => {
     } else {
         currentPage--;
         showPagination(currentPage);
+        showPage(pages[currentPage]);
     }
 });
+
+for (const item of pages) {
+    item.addEventListener('click', function () {
+        console.log('item:', item);
+        showPage(this);
+    });
+};
 
 function showPage(item) {
     console.log('this.innerHTML: ', item.innerHTML);
