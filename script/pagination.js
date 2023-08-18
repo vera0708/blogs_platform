@@ -89,7 +89,7 @@ function showPage(item) {
             let blogLink = document.createElement('a');
             blogLink.classList.add('blog__link');
             blogLink.href = `article.html`;
-            // link.href = `tel:${phone}`;
+            // blogLink.href = `blog.html?page=${pageNum}`;
             let blogItem = document.createElement('li');
             blogItem.classList.add('blog__item');
             /* let div;

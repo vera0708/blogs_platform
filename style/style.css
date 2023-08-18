@@ -2,6 +2,7 @@
 @import 'header.css';
 @import 'main-page.css';
 @import 'blog.css';
+@import 'article.css';
 
 @font-face {
     font-family: Lato;
