@@ -53,18 +53,20 @@
 
 .blog__info-view,
 .blog__info-comment {
+    display: flex;
+    align-items: center;
     background-repeat: no-repeat;
     background-position: left;
 }
 
 .blog__info-view {
     background-image: url(../img/view.svg);
-    padding-left: 25px;
+    padding-left: 28px;
 }
 
 .blog__info-comment {
     background-image: url(../img/comment.svg);
-    padding-left: 34px;
+    padding-left: 32px;
 }
 
 .blog__footer {
