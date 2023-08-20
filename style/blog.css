@@ -194,6 +194,10 @@
         height: 32px;
         font-size: 14px;
     }
+
+    .footer__btn {
+        width: 30px;
+    }
 }
 
 @media (max-width: 1020px) {

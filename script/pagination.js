@@ -1,90 +1,76 @@
 import { data, meta } from './data.js';
+import { loadData } from './script.js';
 
-const listArticles = document.querySelector('[data-page]');
-console.log('listArticles: ', listArticles);
-// const pages = document.querySelectorAll('#pagination li');
-// console.log('pages: ', pages);
+console.log('loadData: ', loadData);
 
-const listPages = document.querySelector('#pagination');
-const prev = document.querySelector('.footer__btn-previous');
-const next = document.querySelector('.footer__btn-next');
+const getPagination = () => {
+    const listArticles = document.querySelector('[data-page]');
+    console.log('listArticles: ', listArticles);
+    // const pages = document.querySelectorAll('#pagination li');
 
-let articlesOnPage = 4;
-// let articlesOnPage = meta.pagination.limit;
-let totalPages = meta.pagination.total;
-let numberOfPages = Math.ceil(totalPages / articlesOnPage);
-console.log('numberOfPages: ', numberOfPages);
-let currentPage = 1;
+    const listPages = document.querySelector('#pagination');
+    const prev = document.querySelector('.footer__btn-previous');
+    const next = document.querySelector('.footer__btn-next');
 
-let pages = [];
-function showPagination(currentPage) {
-    listPages.textContent = '';
-    console.log('listPages', listPages);
-    for (let i = currentPage; i < currentPage + 3; i++) {
-        let page = document.createElement('li');
-        page.classList.add('footer__page');
-        page.textContent = i;
-        listPages.append(page);
-        pages.push(page);
-    };
-};
+    let articlesOnPage = 4;
+    // let articlesOnPage = meta.pagination.limit;
+    let totalPages = meta.pagination.total;
+    let numberOfPages = Math.ceil(totalPages / articlesOnPage);
+    console.log('numberOfPages: ', numberOfPages);
+    let currentPage = 1;
+    let pages = [];
 
-showPagination(currentPage);
-showPage(pages[0]);
+    showPagination(currentPage);
+    showPage(pages[0]);
 
-next.addEventListener('click', () => {
-    if (currentPage === totalPages) {
-        showPage(pages[currentPage]);
-        showPagination(currentPage);
-        next.style.cssText = `
+    next.addEventListener('click', () => {
+        if (currentPage === totalPages) {
+            showPage(pages[currentPage]);
+            showPagination(currentPage);
+            next.style.cssText = `
         display: none;
         `;
-    } else {
-        currentPage++;
-        showPagination(currentPage);
-        showPage(pages[currentPage]);
-    }
-});
-
-prev.addEventListener('click', () => {
-    if (currentPage === 1) {
-        showPage(pages[currentPage]);
-        showPagination(currentPage);
-        prev.style.cssText = `
-        display: none;
-        `;
-    } else {
-        currentPage--;
-        showPagination(currentPage);
-        showPage(pages[currentPage]);
-    }
-});
-
-for (const item of pages) {
-    item.addEventListener('click', function () {
-        console.log('item:', item);
-        showPage(this);
+        } else {
+            currentPage++;
+            showPagination(currentPage);
+            showPage(pages[currentPage]);
+        }
     });
-};
 
-function showPage(item) {
-    console.log('this.innerHTML: ', item.innerHTML);
-    let active = document.querySelector('#pagination li.active');
-    if (active) {
-        active.classList.remove('active');
+    prev.addEventListener('click', () => {
+        if (currentPage === 1) {
+            showPage(pages[currentPage]);
+            showPagination(currentPage);
+            prev.style.cssText = `
+        display: none;
+        `;
+        } else {
+            currentPage--;
+            showPagination(currentPage);
+            showPage(pages[currentPage]);
+        }
+    });
+
+    for (const item of pages) {
+        item.addEventListener('click', function () {
+            console.log('item:', item);
+            showPage(this);
+        });
     };
-    active = item;
-    item.classList.add('active');
-    let pageNum = +item.innerHTML;
-    let startPage = (pageNum - 1) * articlesOnPage;
-    let endPage = startPage + articlesOnPage;
 
-    let paginatedArticles = data.slice(startPage, endPage);
-    console.log('paginatedArticles', paginatedArticles);
+    function showPagination(currentPage) {
+        listPages.textContent = '';
+        console.log('listPages', listPages);
+        for (let i = currentPage; i < currentPage + 3; i++) {
+            let page = document.createElement('li');
+            page.classList.add('footer__page');
+            page.textContent = i;
+            listPages.append(page);
+            pages.push(page);
+        };
+    };
 
-    listArticles.textContent = '';
-
-    function createListArticles() {
+    function createListArticles(paginatedArticles) {
         for (const article of paginatedArticles) {
             let blogLink = document.createElement('a');
             blogLink.classList.add('blog__link');
@@ -92,8 +78,6 @@ function showPage(item) {
             // blogLink.href = `blog.html?page=${pageNum}`;
             let blogItem = document.createElement('li');
             blogItem.classList.add('blog__item');
-            /* let div;
-             div = document.createElement('div');*/
 
             const blogImage = document.createElement('img');
             blogImage.classList.add('blog__img');
@@ -126,6 +110,26 @@ function showPage(item) {
             listArticles.append(blogLink);
         }
     };
-    createListArticles();
-}
 
+    function showPage(item) {
+        console.log('this.innerHTML: ', item.innerHTML);
+        let active = document.querySelector('#pagination li.active');
+        if (active) {
+            active.classList.remove('active');
+        };
+        active = item;
+        item.classList.add('active');
+        let pageNum = +item.innerHTML;
+        let startPage = (pageNum - 1) * articlesOnPage;
+        let endPage = startPage + articlesOnPage;
+
+        let paginatedArticles = data.slice(startPage, endPage);
+        console.log('paginatedArticles', paginatedArticles);
+
+        listArticles.textContent = '';
+
+        createListArticles(paginatedArticles);
+    };
+};
+
+getPagination();
