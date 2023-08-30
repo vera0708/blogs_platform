@@ -131,7 +131,7 @@ const getPagination = () => {
                 showPage(pages[currentPage - 1]);
             });
         };
-    }
+    };
 
     function setArrowsVisibility() {
         if (currentPage === numberOfPages) {
