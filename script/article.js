@@ -35,13 +35,13 @@ async function createArticle() {
     articleTitle.textContent = `${data.title}`;
     const articleText = document.createElement('p');
     articleText.classList.add('article__text');
-    articleText.textContent = `${data.title}`;
+    articleText.textContent = `${data.body}`;
     const articleBottom = document.createElement('div');
     articleBottom.classList.add('article__bottom');
     articleBottom.innerHTML = `
     <a href="blog.html" class="article__bottom-return">К списку статей</a>
     <div class="article__bottom-info">
-        <p class="article__author">${author.data.name ? author.data.name : 'noname'}</p>
+        <p class="article__author">${author.data.name ? author.data.name : 'Noname'}</p>
         <p class="article__data">22 октября 2021, 12:45</p>
         <div class="blog__info">
             <div class="blog__info-view">1.2K</div>

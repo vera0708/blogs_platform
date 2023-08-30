@@ -21,7 +21,6 @@ const getPagination = () => {
     let articlesOnPage = meta.pagination.limit;
     let totalArticles = meta.pagination.total;
     let numberOfPages = Math.ceil(totalArticles / articlesOnPage);
-    // console.log('numberOfPages: ', numberOfPages, meta.pagination.pages);
     let pages = [];
 
     showPagination(1);
@@ -146,7 +145,8 @@ const getPagination = () => {
         } else {
             prev.style.cssText = 'display: block;';
         }
-    }
+    };
+
 };
 
 getPagination();
