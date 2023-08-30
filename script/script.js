@@ -13,4 +13,3 @@ const loadArticle = async (id) => {
 };
 
 export { loadData, loadArticle };
-// loadData();

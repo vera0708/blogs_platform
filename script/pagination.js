@@ -21,19 +21,16 @@ const getPagination = () => {
     let articlesOnPage = meta.pagination.limit;
     let totalArticles = meta.pagination.total;
     let numberOfPages = Math.ceil(totalArticles / articlesOnPage);
-    console.log('numberOfPages: ', numberOfPages, meta.pagination.pages);
+    // console.log('numberOfPages: ', numberOfPages, meta.pagination.pages);
     let pages = [];
 
     showPagination(1);
     showPage(pages[0]);
     setArrowsVisibility();
-
     setClicksHandler();
 
     next.addEventListener('click', async () => {
-        if (currentPage === meta.pages) {
-            // last page
-
+        if (currentPage === numberOfPages) {
             return;
         }
 
@@ -46,8 +43,6 @@ const getPagination = () => {
 
     prev.addEventListener('click', async () => {
         if (currentPage === 1) {
-            // first page
-
             return;
         }
 
@@ -63,7 +58,6 @@ const getPagination = () => {
             let blogLink = document.createElement('a');
             blogLink.classList.add('blog__link');
             blogLink.href = `article.html?id=${article.id}`;
-            // blogLink.href = `blog.html?page=${pageNum}`;
             let blogItem = document.createElement('li');
             blogItem.classList.add('blog__item');
 
@@ -77,7 +71,6 @@ const getPagination = () => {
             const blogTitle = document.createElement('h1');
             blogTitle.classList.add('blog__title');
             blogTitle.textContent = article.title;
-            // blogTitle.textContent = `${}`;
             const blogData = document.createElement('p');
             blogData.classList.add('blog__data');
             blogData.textContent = `22 октября 2021, 12:45`;
@@ -102,11 +95,6 @@ const getPagination = () => {
     function showPagination(currentPage) {
         pages = [];
         listPages.textContent = '';
-        /*if (currentPage === 1) {
-            prev.style.cssText = `display: none;`;
-        }*/
-        console.log('listPages', listPages);
-
         const mod = (currentPage - 1) % 3;
 
         for (let i = currentPage - mod; i < currentPage + 3 - mod; i++) {
@@ -122,15 +110,13 @@ const getPagination = () => {
         setClicksHandler();
     };
 
-    async function showPage(item) {
+    async function showPage() {
         listArticles.textContent = '';
-
         createListArticles(data);
     };
 
     async function updateData() {
         const loadedPageData = await loadData(currentPage);
-
         data = loadedPageData.data;
         meta = loadedPageData.meta;
     }
@@ -148,8 +134,9 @@ const getPagination = () => {
     }
 
     function setArrowsVisibility() {
-        if (currentPage === meta.pages) {
+        if (currentPage === numberOfPages) {
             next.style.cssText = 'display: none;';
+            // next.setAttribute("disabled", "true");
         } else {
             next.style.cssText = 'display: block;';
         }

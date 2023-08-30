@@ -1,12 +1,11 @@
 import { loadArticle } from './script.js';
 
-createArticle();
-
 async function createArticle() {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
-
     const { data } = await loadArticle(id);
+
+    console.log('data  article.js', data);
 
     const article = document.createElement('article');
     article.classList.add('article');
@@ -70,3 +69,5 @@ async function createArticle() {
     article.append(header, articleBlock);
     return article;
 };
+
+createArticle();
