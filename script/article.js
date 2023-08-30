@@ -1,4 +1,6 @@
-import { loadArticle } from './script.js';
+import { loadArticle, loadAuthor } from './script.js';
+
+const body = document.querySelector('body');
 
 async function createArticle() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -67,6 +69,7 @@ async function createArticle() {
 `;
     articleBlock.append(articleContent, articlePromo);
     article.append(header, articleBlock);
+    body.append(article);
     return article;
 };
 
